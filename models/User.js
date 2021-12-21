@@ -1,22 +1,23 @@
 const Sequelize = require('sequelize')
 const db = require('./db')
 
-const User = db.define('User', {
+const User = db.define('users', {
   nome: {
     type: Sequelize.STRING,
     allowNull: false,
-    primaryKey: true
   },
   CPF: {
-    type: Sequelize.INTEGER,
-    allowNull:false
+    type: Sequelize.STRING,
+    allowNull:false,
+    unique: true,
+    primaryKey: true
   },
   endereco: {
     type: Sequelize.STRING,
     allowNull:false
   },
   numero: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull:false
   },
   bairro: {
@@ -36,10 +37,9 @@ const User = db.define('User', {
     allowNull:false
   },
   RG: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     allowNull:false
   }
-
 })
 
 //criar a tabela se n existir
